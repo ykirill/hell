@@ -1,0 +1,2 @@
+:set -isrc -package Cabal
+:l Setup.hs
