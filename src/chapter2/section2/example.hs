@@ -11,20 +11,20 @@ lst1 +++ lst2 = if null lst1
                 else head lst1 : (tail lst1 +++ lst2)
 
 reverse2 :: [t] -> [t]
-reverse2 lst = if null lst
+reverse2 list = if null list
                 then []
-                else reverse2 (tail lst) +++ [head lst]
+                else reverse2 (tail list) +++ [head list]
 
 maxmin1 :: Ord b => [b] -> (b, b)
 maxmin1 list = if null (tail list)
-              then (head list, head list)
-              else ( if head list > fst (maxmin1 (tail list))
-                     then head list
-                     else fst (maxmin1 (tail list))
-                   , if head list < snd (maxmin1 (tail list))
-                     then head list
-                     else snd (maxmin1 (tail list))
-                   )
+               then (head list, head list)
+               else ( if head list > fst (maxmin1 (tail list))
+                      then head list
+                      else fst (maxmin1 (tail list))
+                    , if head list < snd (maxmin1 (tail list))
+                      then head list
+                      else snd (maxmin1 (tail list))
+                    )
 
 maxmin2 :: Ord b => [b] -> (b, b)
 maxmin2 list = let h = head list in
