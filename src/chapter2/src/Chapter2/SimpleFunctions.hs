@@ -33,3 +33,8 @@ maxmin' list = let h = head list
                        where t = maxmin' (tail list)
                              t_max = fst t
                              t_min = snd t
+
+fibonacci :: Integer -> Integer
+fibonacci 0 = 0
+fibonacci 1 = 1
+fibonacci n = fibonacci (n-1) + fibonacci (n-2)
