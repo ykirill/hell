@@ -5,5 +5,7 @@ data Client = GovOrg     String
             | Individual Person Bool
             deriving (Show)
 
-data Person = Person String String
+data Person = Person String String Gender
             deriving (Show)
+
+data Gender = Male | Female | Unknown deriving (Show)
