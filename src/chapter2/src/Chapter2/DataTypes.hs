@@ -13,18 +13,25 @@ data Person = Person String String Gender
 
 data Gender = Male | Female | Unknown deriving (Show)
 
+-- TOTAL FUNCTIONS
 -- Long version
-clientName :: Client -> Maybe String
+clientName :: Client -> String
 clientName client = case client of
-           GovOrg name                                -> Just name
-           Company name _ _ _                         -> Just name
-           Individual (Person firstName lastName _) _ -> Just (firstName ++ " " ++ lastName)
+           GovOrg name                                -> name
+           Company name _ _ _                         -> name
+           Individual (Person firstName lastName _) _ -> firstName ++ " " ++ lastName
 
 -- Short version
-clientName' :: Client -> Maybe String
-clientName' (GovOrg name)                                = Just name
-clientName' (Company name _ _ _)                         = Just name
-clientName' (Individual (Person firstName lastName _) _) = Just (firstName ++ " " ++ lastName)
+clientName' :: Client -> String
+clientName' (GovOrg name) = name
+clientName' (Company name _ _ _) = name
+clientName' (Individual (Person firstName lastName _) _) = firstName ++ " " ++ lastName
+
+-- PARTIAL FUNCTION
+companyName :: Client -> Maybe String
+companyName (Company name _ _ _) = Just name
+companyName _ = Nothing
+
 
 {- TimeMachines -}
 data TimeMachine = TimeMachine String Integer String Type Double
