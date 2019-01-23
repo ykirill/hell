@@ -18,7 +18,8 @@ extra-source-files:  CHANGELOG.md
 
 library
    exposed-modules:
-
+                    Chapter2.Section2.Example
+                    Chapter2.SimpleFunctions
    other-modules:
 
   -- other-extensions:
