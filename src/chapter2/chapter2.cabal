@@ -21,6 +21,7 @@ library
                     Chapter2.Section2.Example
                     Chapter2.SimpleFunctions
    other-modules:
+                    Chapter2.DataTypes
 
   -- other-extensions:
   build-depends:       base ^>=4.12.0.0
