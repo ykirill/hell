@@ -17,7 +17,7 @@ To start Vagrant box.
 $ vagrant up
 ```
 
-At this moment the  box should be also provisioned. If it did'nt happened, you should type:
+At this moment the  box should be also provisioned. If it didn't happened, you should type:
 ```bash
 $ vagrant provision
 ```
