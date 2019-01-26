@@ -17,9 +17,11 @@ firstOrEmpty list = if not (null list) then head list else "empty"
 (x:xs) +++ list2 = x:(xs +++ list2)
 
 reverse' :: [a] -> [a]
-reverse' list = if null list
-                then []
-                else reverse' (tail list) +++ [head list]
+-- reverse' list = if null list
+--                 then []
+--                 else reverse' (tail list) +++ [head list]
+reverse' [] = []
+reverse' (x:xs) = reverse' xs +++ [x]
 
 maxmin :: [Integer] -> (Integer, Integer)
 maxmin list = if null (tail list)
