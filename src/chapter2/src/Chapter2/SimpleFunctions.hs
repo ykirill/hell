@@ -4,9 +4,17 @@ firstOrEmpty :: [ String ] -> String
 firstOrEmpty list = if not (null list) then head list else "empty"
 
 (+++) :: [a] -> [a] -> [a]
-list1 +++ list2 = if null list1
-                  then list2
-                  else (head list1) : (tail list1 +++ list2)
+-- First version.
+-- list1 +++ list2 = if null list1
+--                   then list2
+--                   else (head list1) : (tail list1 +++ list2)
+-- Second version.
+-- list1 +++ list2 = case list1 of
+--                   []   -> list2
+--                   x:xs -> x:(xs +++ list2)
+-- Third version.
+[]     +++ list2 = list2
+(x:xs) +++ list2 = x:(xs +++ list2)
 
 reverse' :: [a] -> [a]
 reverse' list = if null list
