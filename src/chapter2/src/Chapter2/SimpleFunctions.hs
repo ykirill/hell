@@ -54,14 +54,19 @@ fibonacci 1 = 1
 fibonacci n = fibonacci (n-1) + fibonacci (n-2)
 
 fibonacci' :: Integer -> Maybe Integer
-fibonacci' n = if n < 0
-               then Nothing
-               else case n of
-                       0 -> Just 0
-                       1 -> Just 1
-                       n -> let Just f1 = fibonacci' (n-1)
-                                Just f2 = fibonacci' (n-2)
-                            in Just (f1 + f2)
+-- fibonacci' n = if n < 0
+--                then Nothing
+--                else case n of
+--                        0 -> Just 0
+--                        1 -> Just 1
+--                        n -> let Just f1 = fibonacci' (n-1)
+--                                 Just f2 = fibonacci' (n-2)
+--                             in Just (f1 + f2)
+fibonacci' n | n < 0     = Nothing
+fibonacci' 0             = Just 0
+fibonacci' 1             = Just 1
+fibonacci' n | otherwise = let (Just f1, Just f2) = (fibonacci' (n-1), fibonacci' (n-2))
+                           in Just (f1 + f2)
 
 sorted :: [Integer] -> Bool
 sorted []           = True
