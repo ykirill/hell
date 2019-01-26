@@ -22,6 +22,7 @@ library
                     Chapter2.SimpleFunctions
    other-modules:
                     Chapter2.DataTypes
+                    Chapter2.DefaultOptions
 
   -- other-extensions:
   build-depends:       base ^>=4.12.0.0
