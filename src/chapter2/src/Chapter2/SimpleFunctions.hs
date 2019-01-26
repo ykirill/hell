@@ -98,4 +98,24 @@ akkerman m n
     | m == 0          = n+1
     | m > 0 && n == 0 = (akkerman (m-1) 1)
     | m > 0 && n > 0  = (akkerman (m-1) (akkerman m (n-1)))
-    | otherwise        = 0
+    | otherwise       = 0
+
+empty :: [a] -> Bool
+empty [] = True
+empty (_:__) = False
+
+unzip' :: [(Integer, Integer)] -> ([Integer], [Integer])
+-- unzip' []      = ([],[])
+-- unzip' (x:xs) = ( (fst x):first
+--                 , (snd x):second
+--                 ) where unzipped_tail = unzip' xs
+--                         first = fst unzipped_tail
+--                         second = snd unzipped_tail
+unzip' list
+    | empty list = ([],[])
+    | otherwise = let h = head list
+                  in ( (fst h):first
+                     , (snd h): second
+                     ) where unzipped_tail = unzip' (tail list)
+                             first         = fst unzipped_tail
+                             second        = snd unzipped_tail
