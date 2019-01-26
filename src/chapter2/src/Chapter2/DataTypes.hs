@@ -32,6 +32,14 @@ companyName :: Client -> Maybe String
 companyName (Company name _ _ _) = Just name
 companyName _ = Nothing
 
+responsibility :: Client -> String
+responsibility (Company _ _ _ r) = r
+responsibility _ = "Unknown"
+
+specialClient :: Client -> Bool
+specialClient (clientName -> "John Doe") = True
+specialClient (responsibility -> "CEO") = True
+specialClient _ = False
 
 {- TimeMachines -}
 data TimeMachine = TimeMachine String Integer String Type Double
