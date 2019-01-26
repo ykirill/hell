@@ -83,7 +83,12 @@ multipleOf :: Integer -> Integer -> Bool
 multipleOf x y = (mod x y) == 0
 
 specialMultiples :: Integer -> String
-specialMultiples n | multipleOf n 2 = show n ++ " is multiple of 2"
-specialMultiples n | multipleOf n 3 = show n ++ " is multiple of 3"
-specialMultiples n | multipleOf n 5 = show n ++ " is multiple of 5"
-specialMultiples n | otherwise      = show n ++ " is a beautiful number"
+-- specialMultiples n | multipleOf n 2 = show n ++ " is multiple of 2"
+-- specialMultiples n | multipleOf n 3 = show n ++ " is multiple of 3"
+-- specialMultiples n | multipleOf n 5 = show n ++ " is multiple of 5"
+-- specialMultiples n | otherwise      = show n ++ " is a beautiful number"
+specialMultiples n
+    | multipleOf n 2 = show n ++ " is multiple of 2"
+    | multipleOf n 3 = show n ++ " is multiple of 3"
+    | multipleOf n 5 = show n ++ " is multiple of 5"
+    | otherwise      = show n ++ " is a beautiful number"
