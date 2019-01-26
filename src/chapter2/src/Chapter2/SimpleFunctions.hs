@@ -48,3 +48,8 @@ fibonacci :: Integer -> Integer
 fibonacci 0 = 0
 fibonacci 1 = 1
 fibonacci n = fibonacci (n-1) + fibonacci (n-2)
+
+sorted :: [Integer] -> Bool
+sorted []       = True
+sorted [_]      = True
+sorted (x:y:zs) = x < y && sorted (y:zs)
