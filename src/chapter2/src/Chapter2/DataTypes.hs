@@ -46,3 +46,26 @@ data TimeMachine = TimeMachine String Integer String Type Double
                  deriving (Show)
 
 data Type = Future | Past | Both deriving (Show)
+
+{- Using "Records" as data structure -}
+data ClientR = GovOrgR   { clientRName :: String }
+             | CompanyR { clientRName :: String
+                        , companyId :: Integer
+                        , person :: PersonR
+                        , duty :: String }
+             | IndividualR { person :: PersonR, agree :: Bool }
+             deriving (Show)
+
+data PersonR = PersonR { firstName :: String
+                       , lastName :: String
+                       } deriving (Show)
+
+{- Work if "NamedFieldPuns"-}
+greet :: ClientR -> String
+-- greet IndividualR { person = PersonR { firstName } } = "Hi, " ++ firstName
+-- greet CompanyR { clientRName } = "Hello, " ++ clientRName
+-- greet GovOrgR { } = "Welcome"
+{- Work if "RecordWildCards"-}
+greet IndividualR { person = PersonR { .. } } = "Hi, " ++ firstName
+greet CompanyR { .. } = "Hello, " ++ clientRName
+greet GovOrgR { } = "Welcome"
