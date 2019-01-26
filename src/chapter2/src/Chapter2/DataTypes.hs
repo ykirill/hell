@@ -76,3 +76,21 @@ nameInCapitals p@(PersonR { firstName = initial:rest }) =
         let newName = (toUpper initial):rest
         in p { firstName = newName }
 nameInCapitals p@(PersonR { firstName = "" }) = p
+
+data TimeMachineR = TimeMachineR { manufacture :: String
+                                 , model :: Integer
+                                 , title :: String
+                                 , machineType :: Type
+                                 , price :: Double
+                                 } deriving (Show)
+
+func :: [TimeMachineR] -> Integer -> [TimeMachineR]
+func [] _ = []
+func (machine:machines) discount =
+    let mf = manufacture machine
+        m = model machine
+        t = title machine
+        mt = machineType machine
+        p = price machine
+        newPrice = p - (p * ((fromInteger discount) * 0.01))
+    in (TimeMachineR mf m t mt newPrice):(func machines discount)
