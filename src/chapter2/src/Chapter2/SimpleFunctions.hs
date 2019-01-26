@@ -24,25 +24,29 @@ reverse' [] = []
 reverse' (x:xs) = reverse' xs +++ [x]
 
 maxmin :: [Integer] -> (Integer, Integer)
-maxmin list = if null (tail list)
-              then (head list, head list)
-              else ( if (head list) > fst (maxmin (tail list))
-                     then head list
-                     else fst (maxmin (tail list))
-                   , if (head list) < fst (maxmin (tail list))
-                     then head list
-                     else fst (maxmin (tail list))
-                   )
-
-maxmin' :: [Integer] -> (Integer, Integer)
-maxmin' list = let h = head list
-               in if null (tail list)
-                  then (h, h)
-                  else ( if h > t_max then h else t_max
-                       , if h < t_min then h else t_min )
-                       where t = maxmin' (tail list)
-                             t_max = fst t
-                             t_min = snd t
+-- maxmin list = if null (tail list)
+--               then (head list, head list)
+--               else ( if (head list) > fst (maxmin (tail list))
+--                      then head list
+--                      else fst (maxmin (tail list))
+--                    , if (head list) < fst (maxmin (tail list))
+--                      then head list
+--                      else fst (maxmin (tail list))
+--                    )
+--
+-- maxmin' :: [Integer] -> (Integer, Integer)
+-- maxmin' list = let h = head list
+--                in if null (tail list)
+--                   then (h, h)
+--                   else ( if h > t_max then h else t_max
+--                        , if h < t_min then h else t_min )
+--                        where t = maxmin' (tail list)
+--                              t_max = fst t
+--                              t_min = snd t
+maxmin [x]    = (x,x)
+maxmin (x:xs) = ( if x > max then x else max
+                , if x < min then x else min
+                ) where (max, min) = maxmin xs
 
 fibonacci :: Integer -> Integer
 fibonacci 0 = 0
