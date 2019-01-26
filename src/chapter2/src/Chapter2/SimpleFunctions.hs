@@ -68,3 +68,8 @@ sorted []           = True
 sorted [_]          = True
 -- sorted (x:y:zs) = x < y && sorted (y:zs)
 sorted (x: r@(y:_)) = x < y && sorted r
+
+binom :: Integer -> Integer -> Integer
+binom _ 0 = 1
+binom x y | x == y = 1
+binom n k = (binom (n-1) (k-1)) + (binom (n-1) k)
