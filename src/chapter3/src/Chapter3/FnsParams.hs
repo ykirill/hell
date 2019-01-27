@@ -56,3 +56,31 @@ filterGovOrgs' clients = filter (\case GovOrg {} -> True
                                        _         -> False
                                 ) clients
 -- End
+
+-- Partial application
+-- map (*2) is equivalent to map (\x -> x * 2)
+-- f $ g = f g
+duplicateOdds :: [Integer] -> [Integer]
+duplicateOdds []   = []
+duplicateOdds list = map (*2) $ filter odd list
+
+-- Point-free-style
+-- (.) - combinator
+-- f . g = \x -> f (g x)
+duplicateOdds' :: [Integer] -> [Integer]
+duplicateOdds' = map (*2) . filter odd
+
+uncurry' :: (a -> b -> c) -> (a,b) -> c
+uncurry' f = \(x,y) -> f x y
+
+curry' :: ((a,b) -> c) -> a -> b -> c
+curry' f = \ x y -> f (x,y)
+
+(***) :: (a -> b) -> (c -> d) -> ((a,c) -> (b,d))
+f *** g = \(x,y) -> (f x, g y)
+
+duplicate :: x -> (x,x)
+duplicate x = (x,x)
+
+flip' :: (a -> b -> c) -> b -> a -> c
+flip' f = \x y -> f y x

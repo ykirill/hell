@@ -9,3 +9,7 @@
 * Added ParamPoly.hs file, and `maybeString` function as simple example of parametric polymorphism.
 * Added polymorphic data type `Client`.
 * Added solution Ex.3.1.
+
+## 0.0.3 -- 2019-01-27
+* Added FnsParams.hs, and solution for Ex.3.2.
+* 

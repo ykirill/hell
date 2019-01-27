@@ -23,8 +23,8 @@ data Gender = Male | Female | Unknown deriving Show
 swarpTriple :: (c,a,b) -> (a,b,c)
 swarpTriple (x,y,z) = (y,z,x)
 
-duplicate :: a -> (a,a)
-duplicate x = (x,x)
+-- duplicate :: a -> (a,a)
+-- duplicate x = (x,x)
 
 nothing :: p -> Maybe a
 nothing _ = Nothing
