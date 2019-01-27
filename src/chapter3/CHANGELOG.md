@@ -8,3 +8,4 @@
 
 * Added ParamPoly.hs file, and `maybeString` function as simple example of parametric polymorphism.
 * Added polymorphic data type `Client`.
+* Added solution Ex.3.1.
