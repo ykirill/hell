@@ -7,3 +7,4 @@
 ## 0.0.2 -- 2019-01-27
 
 * Added ParamPoly.hs file, and `maybeString` function as simple example of parametric polymorphism.
+* Added polymorphic data type `Client`.
