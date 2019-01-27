@@ -12,7 +12,7 @@ name:                chapter3
 -- PVP summary:      +-+------- breaking API changes
 --                   | | +----- non-breaking API additions
 --                   | | | +--- code changes with no API change
-version:             0.0.1
+version:             0.0.2
 
 -- A short (one-line) description of the package.
 synopsis:            -
@@ -56,6 +56,7 @@ library
 
   -- Modules included in this library but not exported.
    other-modules:
+                    Chapter3.ParamPoly
 
   -- LANGUAGE extensions used by modules in this package.
   -- other-extensions:
